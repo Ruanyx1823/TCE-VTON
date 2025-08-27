@@ -95,10 +95,6 @@ def parse_args():
 
     parser.add_argument("--category", type=str, choices=['all', 'lower_body', 'upper_body', 'dresses'], default='all')
 
-    # parser.add_argument("--emasc_type", type=str, default='nonlinear', choices=["none", "linear", "nonlinear"],
-    #                     help="Whether to use linear or nonlinear EMASC.")
-    # parser.add_argument("--emasc_kernel", type=int, default=3, help="EMASC kernel size.")
-    # parser.add_argument("--emasc_padding", type=int, default=1, help="EMASC padding size.")
 
     parser.add_argument("--cloth_input_type", type=str, choices=["warped", "none"], default='warped',
                         help="cloth input type. If 'warped' use the warped cloth, if none do not use the cloth as input of the unet")
@@ -131,12 +127,6 @@ def parse_args():
 @torch.inference_mode()
 def main():
     args = parse_args()
-    # args.dataset = "vvton"
-    # args.output_dir = "/home/user/zld/VideoVTON/LaDI-VTON/output"
-    # args.save_name = "test_unpaired_dino-v2_projector_skip-attn"
-    # args.vae_dir = "/home/user/zld/VideoVTON/LaDI-VTON/src/models/weights/vae.pth"
-    # args.unet_dir = "/home/user/zld/VideoVTON/LaDI-VTON/src/models/weights/unet.pth"
-    # args.projector_dir = "/home/user/zld/VideoVTON/LaDI-VTON/src/models/weights/vision_encoder_projector.pth"
 
     # Enable TF32 for faster inference on Ampere GPUs,
     # cf https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices
@@ -235,9 +225,7 @@ def main():
     vae.eval()
     unet.to(device, dtype=weight_dtype)
     unet.eval()
-    # if emasc is not None:
-    #     emasc.to(device, dtype=weight_dtype)
-    #     emasc.eval()
+
     if vision_encoder is not None:
         vision_encoder.to(device, dtype=weight_dtype)
         vision_encoder.eval()
