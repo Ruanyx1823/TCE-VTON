@@ -1,6 +1,6 @@
 # ETC-TON:Enhancing Temporal Consistency of video-based virtual Try-ON with latent diffusion models
 
-![pipeline](assets/pipeline.png)
+![pipeline](assets/Pipeline.png)
 NOTE: Thanks to [ladi-vton](https://github.com/miccunifi/ladi-vton), [DisCo](https://github.com/Wangt-CN/DisCo) for the inspiration, and any related discussions are welcome.
 
 ## Result Visualization
